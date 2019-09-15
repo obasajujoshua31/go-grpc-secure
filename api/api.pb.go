@@ -63,21 +63,198 @@ func (m *PingMessage) GetGreeting() string {
 	return ""
 }
 
+type Empty struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Empty) Reset()         { *m = Empty{} }
+func (m *Empty) String() string { return proto.CompactTextString(m) }
+func (*Empty) ProtoMessage()    {}
+func (*Empty) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{1}
+}
+
+func (m *Empty) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Empty.Unmarshal(m, b)
+}
+func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Empty.Marshal(b, m, deterministic)
+}
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
+}
+func (m *Empty) XXX_Size() int {
+	return xxx_messageInfo_Empty.Size(m)
+}
+func (m *Empty) XXX_DiscardUnknown() {
+	xxx_messageInfo_Empty.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Empty proto.InternalMessageInfo
+
+type TodoId struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *TodoId) Reset()         { *m = TodoId{} }
+func (m *TodoId) String() string { return proto.CompactTextString(m) }
+func (*TodoId) ProtoMessage()    {}
+func (*TodoId) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{2}
+}
+
+func (m *TodoId) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TodoId.Unmarshal(m, b)
+}
+func (m *TodoId) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TodoId.Marshal(b, m, deterministic)
+}
+func (m *TodoId) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TodoId.Merge(m, src)
+}
+func (m *TodoId) XXX_Size() int {
+	return xxx_messageInfo_TodoId.Size(m)
+}
+func (m *TodoId) XXX_DiscardUnknown() {
+	xxx_messageInfo_TodoId.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TodoId proto.InternalMessageInfo
+
+func (m *TodoId) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type Todo struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title                string   `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	IsCompleted          bool     `protobuf:"varint,3,opt,name=is_completed,json=isCompleted,proto3" json:"is_completed,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Todo) Reset()         { *m = Todo{} }
+func (m *Todo) String() string { return proto.CompactTextString(m) }
+func (*Todo) ProtoMessage()    {}
+func (*Todo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{3}
+}
+
+func (m *Todo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Todo.Unmarshal(m, b)
+}
+func (m *Todo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Todo.Marshal(b, m, deterministic)
+}
+func (m *Todo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Todo.Merge(m, src)
+}
+func (m *Todo) XXX_Size() int {
+	return xxx_messageInfo_Todo.Size(m)
+}
+func (m *Todo) XXX_DiscardUnknown() {
+	xxx_messageInfo_Todo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Todo proto.InternalMessageInfo
+
+func (m *Todo) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *Todo) GetTitle() string {
+	if m != nil {
+		return m.Title
+	}
+	return ""
+}
+
+func (m *Todo) GetIsCompleted() bool {
+	if m != nil {
+		return m.IsCompleted
+	}
+	return false
+}
+
+type Todos struct {
+	Todos                []*Todo  `protobuf:"bytes,1,rep,name=todos,proto3" json:"todos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Todos) Reset()         { *m = Todos{} }
+func (m *Todos) String() string { return proto.CompactTextString(m) }
+func (*Todos) ProtoMessage()    {}
+func (*Todos) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{4}
+}
+
+func (m *Todos) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Todos.Unmarshal(m, b)
+}
+func (m *Todos) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Todos.Marshal(b, m, deterministic)
+}
+func (m *Todos) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Todos.Merge(m, src)
+}
+func (m *Todos) XXX_Size() int {
+	return xxx_messageInfo_Todos.Size(m)
+}
+func (m *Todos) XXX_DiscardUnknown() {
+	xxx_messageInfo_Todos.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Todos proto.InternalMessageInfo
+
+func (m *Todos) GetTodos() []*Todo {
+	if m != nil {
+		return m.Todos
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*PingMessage)(nil), "api.PingMessage")
+	proto.RegisterType((*Empty)(nil), "api.Empty")
+	proto.RegisterType((*TodoId)(nil), "api.TodoId")
+	proto.RegisterType((*Todo)(nil), "api.Todo")
+	proto.RegisterType((*Todos)(nil), "api.Todos")
 }
 
 func init() { proto.RegisterFile("api.proto", fileDescriptor_00212fb1f9d3bf1c) }
 
 var fileDescriptor_00212fb1f9d3bf1c = []byte{
-	// 111 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4c, 0x2c, 0xc8, 0xd4,
-	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4e, 0x2c, 0xc8, 0x54, 0xd2, 0xe4, 0xe2, 0x0e, 0xc8,
-	0xcc, 0x4b, 0xf7, 0x4d, 0x2d, 0x2e, 0x4e, 0x4c, 0x4f, 0x15, 0x92, 0xe2, 0xe2, 0x48, 0x2f, 0x4a,
-	0x4d, 0x2d, 0xc9, 0xcc, 0x4b, 0x97, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x82, 0xf3, 0x8d, 0x2c,
-	0xb8, 0x58, 0x40, 0x4a, 0x85, 0x0c, 0xb8, 0x38, 0x82, 0x13, 0x2b, 0x3d, 0x52, 0x73, 0x72, 0xf2,
-	0x85, 0x04, 0xf4, 0x40, 0xe6, 0x21, 0x99, 0x20, 0x85, 0x21, 0xa2, 0xc4, 0x90, 0xc4, 0x06, 0xb6,
-	0xd0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0xf8, 0x4a, 0xe3, 0x1e, 0x7d, 0x00, 0x00, 0x00,
+	// 251 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x90, 0x4d, 0x4b, 0xc4, 0x30,
+	0x10, 0x86, 0xfb, 0xb1, 0xdd, 0x6d, 0xa7, 0x22, 0x32, 0x78, 0x08, 0xbd, 0x58, 0xa3, 0x87, 0x7a,
+	0x59, 0x64, 0xfd, 0x09, 0x22, 0xba, 0x07, 0x51, 0xaa, 0x77, 0xa9, 0x66, 0x28, 0x03, 0xdd, 0x4d,
+	0xd8, 0xe4, 0xb2, 0x67, 0xff, 0xb8, 0x24, 0x5d, 0xab, 0xe8, 0x2d, 0xf3, 0xbc, 0x2f, 0x99, 0x3c,
+	0x81, 0xa2, 0x33, 0xbc, 0x34, 0x3b, 0xed, 0x34, 0xa6, 0x9d, 0x61, 0x79, 0x05, 0xe5, 0x33, 0x6f,
+	0xfb, 0x47, 0xb2, 0xb6, 0xeb, 0x09, 0x2b, 0xc8, 0xfb, 0x1d, 0x91, 0xe3, 0x6d, 0x2f, 0xe2, 0x3a,
+	0x6e, 0x8a, 0x76, 0x9a, 0xe5, 0x02, 0xb2, 0xbb, 0x8d, 0x71, 0x7b, 0x29, 0x60, 0xfe, 0xaa, 0x95,
+	0x5e, 0x2b, 0x3c, 0x86, 0x84, 0xd5, 0xa1, 0x98, 0xb0, 0x92, 0x4f, 0x30, 0xf3, 0xc9, 0x5f, 0x8e,
+	0xa7, 0x90, 0x39, 0x76, 0x03, 0x89, 0x24, 0xa0, 0x71, 0xc0, 0x73, 0x38, 0x62, 0xfb, 0xf6, 0xa1,
+	0x37, 0x66, 0x20, 0x47, 0x4a, 0xa4, 0x75, 0xdc, 0xe4, 0x6d, 0xc9, 0xf6, 0xf6, 0x1b, 0xc9, 0x06,
+	0x32, 0x7f, 0xa1, 0xc5, 0x33, 0xc8, 0x9c, 0x3f, 0x88, 0xb8, 0x4e, 0x9b, 0x72, 0x55, 0x2c, 0xbd,
+	0x87, 0x8f, 0xda, 0x91, 0xaf, 0x3e, 0x63, 0x98, 0x79, 0x13, 0xbc, 0x86, 0xfc, 0xa5, 0xdb, 0x3f,
+	0xd0, 0x30, 0x68, 0x3c, 0x09, 0xb5, 0x5f, 0x82, 0xd5, 0x3f, 0x22, 0x23, 0xbc, 0x84, 0xfc, 0x9e,
+	0xdc, 0xb8, 0x07, 0x42, 0x1e, 0x3c, 0x2b, 0x98, 0x96, 0x58, 0x19, 0xe1, 0x05, 0x2c, 0x0e, 0x2d,
+	0x2c, 0xa7, 0x60, 0xad, 0xaa, 0x9f, 0xa7, 0xc8, 0xe8, 0x7d, 0x1e, 0xbe, 0xf6, 0xe6, 0x2b, 0x00,
+	0x00, 0xff, 0xff, 0xb8, 0x5f, 0xf1, 0x2d, 0x67, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -93,6 +270,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type PingClient interface {
 	SayHello(ctx context.Context, in *PingMessage, opts ...grpc.CallOption) (*PingMessage, error)
+	GetTodos(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Todos, error)
+	GetTodo(ctx context.Context, in *TodoId, opts ...grpc.CallOption) (*Todo, error)
 }
 
 type pingClient struct {
@@ -112,9 +291,29 @@ func (c *pingClient) SayHello(ctx context.Context, in *PingMessage, opts ...grpc
 	return out, nil
 }
 
+func (c *pingClient) GetTodos(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Todos, error) {
+	out := new(Todos)
+	err := c.cc.Invoke(ctx, "/api.Ping/GetTodos", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pingClient) GetTodo(ctx context.Context, in *TodoId, opts ...grpc.CallOption) (*Todo, error) {
+	out := new(Todo)
+	err := c.cc.Invoke(ctx, "/api.Ping/GetTodo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PingServer is the server API for Ping service.
 type PingServer interface {
 	SayHello(context.Context, *PingMessage) (*PingMessage, error)
+	GetTodos(context.Context, *Empty) (*Todos, error)
+	GetTodo(context.Context, *TodoId) (*Todo, error)
 }
 
 // UnimplementedPingServer can be embedded to have forward compatible implementations.
@@ -123,6 +322,12 @@ type UnimplementedPingServer struct {
 
 func (*UnimplementedPingServer) SayHello(ctx context.Context, req *PingMessage) (*PingMessage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+}
+func (*UnimplementedPingServer) GetTodos(ctx context.Context, req *Empty) (*Todos, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTodos not implemented")
+}
+func (*UnimplementedPingServer) GetTodo(ctx context.Context, req *TodoId) (*Todo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTodo not implemented")
 }
 
 func RegisterPingServer(s *grpc.Server, srv PingServer) {
@@ -147,6 +352,42 @@ func _Ping_SayHello_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Ping_GetTodos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PingServer).GetTodos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.Ping/GetTodos",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PingServer).GetTodos(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ping_GetTodo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TodoId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PingServer).GetTodo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.Ping/GetTodo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PingServer).GetTodo(ctx, req.(*TodoId))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Ping_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "api.Ping",
 	HandlerType: (*PingServer)(nil),
@@ -154,6 +395,14 @@ var _Ping_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _Ping_SayHello_Handler,
+		},
+		{
+			MethodName: "GetTodos",
+			Handler:    _Ping_GetTodos_Handler,
+		},
+		{
+			MethodName: "GetTodo",
+			Handler:    _Ping_GetTodo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

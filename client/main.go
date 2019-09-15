@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
 	"go-grpc/api"
 	"log"
 
@@ -29,6 +31,18 @@ func (a *Authentication) RequireTransportSecurity() bool {
 	return true
 }
 
+// var OneTodo = make(map[string]string)
+
+type OneTodo struct {
+	Id          string
+	Title       string
+	IsCompleted bool
+}
+
+var Alltodos []OneTodo
+
+// var TodoFormats []OneTodo
+
 func main() {
 	var conn *grpc.ClientConn
 
@@ -47,7 +61,7 @@ func main() {
 
 	// Connect to Remote GRPC Server
 	conn, err = grpc.Dial("localhost:7777", grpc.WithTransportCredentials(cred), grpc.WithPerRPCCredentials(&auth))
-	
+
 	if err != nil {
 		log.Fatalf("Could not connect to server %s", err)
 	}
@@ -64,4 +78,34 @@ func main() {
 
 	log.Printf("Response from server: %s", response.Greeting)
 
+	res, err := c.GetTodos(context.Background(), &api.Empty{})
+
+	if err != nil {
+		log.Fatalf("Could not get response for Todos from remote Server: %s", err)
+	}
+
+	for _, one := range res.Todos {
+		Alltodos = append(Alltodos, OneTodo{
+			Id:          one.Id,
+			Title:       one.Title,
+			IsCompleted: one.IsCompleted,
+		})
+	}
+
+	resp, err := json.MarshalIndent(Alltodos, "", "\t")
+
+	if err != nil {
+		fmt.Printf("Error occured :%s", err)
+	}
+	log.Print("Data Retrieved", string(resp))
+
+	OneTodoResponse, err := c.GetTodo(context.Background(), &api.TodoId{Id: "3"})
+
+	if err != nil {
+		fmt.Printf("Error :%s", err)
+		return
+	}
+	respo, err := json.MarshalIndent(OneTodoResponse, "", "\t")
+
+	log.Print("Data Retrieved", string(respo))
 }

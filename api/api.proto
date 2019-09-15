@@ -8,4 +8,21 @@ message PingMessage {
 
 service Ping {
     rpc SayHello(PingMessage) returns (PingMessage) {}
+    rpc GetTodos(Empty) returns (Todos) {}
+    rpc GetTodo(TodoId) returns (Todo) {}
+}
+message Empty {}
+
+message TodoId {
+    string id = 1;
+}
+
+message Todo {
+    string id = 1;
+    string title = 2;
+    bool is_completed = 3;
+}
+
+message Todos {
+    repeated Todo todos = 1;
 }
